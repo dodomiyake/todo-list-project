@@ -83,3 +83,12 @@ This repository contains a simple ToDo application demonstrating a **CRUD API** 
    ```bash
    npm run build
 This compiles the .ts files into the dist/ folder.
+
+3. **Run Locally**
+   ```bash
+   npm run serve
+* This uses serverless-offline, which spins up your app at http://localhost:3000.
+* Test endpoints like GET /todos, POST /todos, PUT /todos/{id}, DELETE /todos/{id}.
+
+4. **Test the Endpoints**
+   * Use Postman, curl, or a browser extension to confirm functionality.
