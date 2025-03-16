@@ -79,5 +79,7 @@ This repository contains a simple ToDo application demonstrating a **CRUD API** 
    ```bash
    cd server
    npm install
+2. **Build the Typescript**
+   ```bash
    npm run build
 This compiles the .ts files into the dist/ folder.
