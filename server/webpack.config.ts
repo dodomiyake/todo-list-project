@@ -10,7 +10,7 @@ module.exports = {
     output: {
         libraryTarget: 'commonjs2',
         path: path.join(__dirname, '.webpack'),
-        filename: 'handler.js'
+        filename: 'todo.js'
     },
     module: {
         rules: [

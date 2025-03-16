@@ -11,7 +11,7 @@ provider:
 
 functions:
   todoApi:
-    handler: dist/handlers/todos.handler
+    handler: dist/todos.handler
     events:
       - http:
           path: todos
