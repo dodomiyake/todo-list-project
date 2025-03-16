@@ -1,0 +1,30 @@
+# deploy serverless applications to AWS
+
+service: todo-app-service
+
+frameworkVersion: "4"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+functions:
+  todoApi:
+    handler: dist/handlers/todos.handler
+    events:
+      - http:
+          path: todos
+          method: get
+      - http:
+          path: todos
+          method: post
+      - http:
+          path: todos/{id}
+          method: put
+      - http:
+          path: todos/{id}
+          method: delete
+
+plugins:
+  - serverless-offline
