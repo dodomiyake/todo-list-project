@@ -6,16 +6,21 @@ This repository contains a simple ToDo application demonstrating a **CRUD API** 
 
 ## Contents
 
-1. [Overview](#overview)  
-2. [Tech Stack](#tech-stack)  
-3. [Project Structure](#project-structure)  
-4. [Getting Started](#getting-started)  
-   - [Backend Setup](#backend-setup)  
-   - [Frontend Setup](#frontend-setup)  
-5. [Usage](#usage)  
-6. [Testing](#testing)  
-7. [Deployment](#deployment)  
-8. [Additional Notes & Bonus Topics](#additional-notes--bonus-topics)  
+- [ToDo App (Serverless + React Native + Redux)](#todo-app-serverless--react-native--redux)
+  - [Contents](#contents)
+  - [Overview](#overview)
+  - [Tech Stack](#tech-stack)
+  - [Project Structure](#project-structure)
+  - [Getting Started](#getting-started)
+    - [Backend Setup](#backend-setup)
+    - [Frontend Setup](#frontend-setup)
+    - [Usage](#usage)
+    - [Testing](#testing)
+  - [Backend Tests](#backend-tests)
+  - [Frontend Tests](#frontend-tests)
+    - [Additional Notes \& Bonus Topics](#additional-notes--bonus-topics)
+  - [Data Storage](#data-storage)
+  - [Code Linting](#code-linting)
 
 ---
 
@@ -134,5 +139,9 @@ This compiles the .ts files into the dist/ folder.
      ```bash
      npm run test
 
-
-
+### Additional Notes & Bonus Topics
+## Data Storage
+   * Currently uses an in-memory array; for production, use DynamoDB or another database.
+  
+## Code Linting
+   * Run npm run lint in both folders to catch style or syntax issues.
