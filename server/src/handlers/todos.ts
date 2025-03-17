@@ -7,10 +7,7 @@ interface Todo {
 }
 
 // In-memory array for demonstration
-let todos: Todo[] = [
-    { id: '1', title: 'Sample To Do 1', completed: false },
-    { id: '2', title: 'Sample To Do 2', completed: true }
-];
+let todos: Todo[] = [];
 
 export const handler = async (event: APIGatewayEvent, context: Context) => {
     const { httpMethod, pathParameters, body } = event;

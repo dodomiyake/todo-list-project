@@ -25,15 +25,21 @@ const initialState: TodosState = {
 };
 
 // URL for making API requests. Replace with your own server or endpoint as needed.
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'http://192.168.144.1:3000';
 
 // Thunk for fetching the list of todos from the API
 export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
-    // Sends a GET request to fetch all todos
-    const response = await axios.get(`${API_BASE_URL}/todos`);
-    // Return the data from the response, which will be handled by Redux
-    return response.data;
+    console.log('🚀 Fetching todos from:', API_BASE_URL); // Debugging log
+    try {
+        const response = await axios.get(`${API_BASE_URL}/todos`);
+        console.log('✅ Todos fetched:', response.data); // Debugging log
+        return response.data;
+    } catch (error: any) {
+        console.error('❌ Error fetching todos:', error.message); // Debugging log
+        throw error;
+    }
 });
+
 
 // Thunk for adding a new todo to the API
 export const addTodo = createAsyncThunk('todos/addTodo', async (title: string) => {
@@ -68,39 +74,24 @@ const todosSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers(builder) {
-        // Handle different states of our async operations
         builder
-            // When fetching todos is pending, set status to 'loading'
             .addCase(fetchTodos.pending, (state) => {
+                console.log('🔄 Fetching todos...');
                 state.status = 'loading';
             })
-            // When fetching todos is successful, store the data and set status to 'succeeded'
             .addCase(fetchTodos.fulfilled, (state, action) => {
+                console.log('✅ Todos loaded:', action.payload);
                 state.status = 'succeeded';
                 state.data = action.payload;
             })
-            // When fetching todos fails, set status to 'failed' and store the error message
             .addCase(fetchTodos.rejected, (state, action) => {
+                console.error('❌ Fetch failed:', action.error.message);
                 state.status = 'failed';
                 state.error = action.error.message || null;
-            })
-            // When adding a todo succeeds, push the new todo into our data array
-            .addCase(addTodo.fulfilled, (state, action) => {
-                state.data.push(action.payload);
-            })
-            // When updating a todo succeeds, find the existing todo by ID and update it
-            .addCase(updateTodo.fulfilled, (state, action) => {
-                const idx = state.data.findIndex((t) => t.id === action.payload.id);
-                if (idx !== -1) {
-                    state.data[idx] = action.payload;
-                }
-            })
-            // When deleting a todo succeeds, remove the todo from our data array by its ID
-            .addCase(deleteTodo.fulfilled, (state, action) => {
-                state.data = state.data.filter((t) => t.id !== action.payload);
             });
     }
 });
+
 
 // Export the todos reducer to be used in the store
 export default todosSlice.reducer;
