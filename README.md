@@ -92,3 +92,47 @@ This compiles the .ts files into the dist/ folder.
 
 4. **Test the Endpoints**
    * Use Postman, curl, or a browser extension to confirm functionality.
+  
+### Frontend Setup
+
+1. **Install Dependencies**
+   ```bash
+   cd mobile
+   npm install
+2. **Configure API Base URL**
+   * In store/todosSlice.ts (inside mobile), set the API_BASE_URL to match your backend URL.
+   * For local development:
+     ```bash
+     const API_BASE_URL = 'http://localhost:3000';
+   * If using a device (not simulator), replace localhost with your computer’s LAN IP or use the deployed backend URL.
+3. **Start the Mobile App**
+   ```bash
+   npx expo start
+* Press `a` to launch Android emulator or `w` for web.
+
+### Usage
+1. Launch the backend
+   ```bash
+   cd server
+   npm run serve
+2. Launch the frontend
+   ```bash
+   cd mobile
+   npx expo start
+3. Add and manage ToDos
+   * The ToDo list is fetched from `/todos`.
+   * You can add, complete (toggle), and delete todos.
+
+### Testing
+## Backend Tests
+   * In `server`, run:
+     ```bash
+     npm run test
+   * This executes any Jest tests under `src/__tests__/`.
+## Frontend Tests
+   * In `mobile`, you can set up Jest or React Native Testing Library:
+     ```bash
+     npm run test
+
+
+
