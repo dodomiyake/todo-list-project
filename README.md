@@ -92,3 +92,21 @@ This compiles the .ts files into the dist/ folder.
 
 4. **Test the Endpoints**
    * Use Postman, curl, or a browser extension to confirm functionality.
+  
+### Frontend Setup
+
+1. **Install Dependencies**
+   ```bash
+   cd mobile
+   npm install
+2. **Configure API Base URL**
+   * In store/todosSlice.ts (inside mobile), set the API_BASE_URL to match your backend URL.
+   * For local development:
+     ```bash
+     const API_BASE_URL = 'http://localhost:3000';
+   * If using a device (not simulator), replace localhost with your computer’s LAN IP or use the deployed backend URL.
+3. **Start the Mobile App**
+   ```bash
+   npx expo start
+* Press a to launch Android emulator.
+   
