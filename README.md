@@ -108,5 +108,31 @@ This compiles the .ts files into the dist/ folder.
 3. **Start the Mobile App**
    ```bash
    npx expo start
-* Press a to launch Android emulator.
-   
+* Press `a` to launch Android emulator.
+
+### Usage
+1. Launch the backend
+   ```bash
+   cd server
+   npm run serve
+2. Launch the frontend
+   ```bash
+   cd mobile
+   npx expo start
+3. Add and manage ToDos
+   * The ToDo list is fetched from `/todos`.
+   * You can add, complete (toggle), and delete todos.
+
+### Testing
+## Backend Tests
+   * In `server`, run:
+     ```bash
+     npm run test
+   * This executes any Jest tests under `src/__tests__/`.
+## Frontend Tests
+   * In `mobile`, you can set up Jest or React Native Testing Library:
+     ```bash
+     npm run test
+
+
+
