@@ -142,12 +142,6 @@ This compiles the .ts files into the dist/ folder.
 ### Additional Notes & Bonus Topics
 ## Data Storage
    * Currently uses an in-memory array; for production, use DynamoDB or another database.
-<<<<<<< HEAD
   
 ## Code Linting
    * Run npm run lint in both folders to catch style or syntax issues.
-=======
-
-
-
->>>>>>> f51c0171694db9b391d6c9818afb95df071a3db7
