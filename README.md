@@ -134,5 +134,9 @@ This compiles the .ts files into the dist/ folder.
      ```bash
      npm run test
 
+### Additional Notes & Bonus Topics
+## Data Storage
+   * Currently uses an in-memory array; for production, use DynamoDB or another database.
+
 
 
