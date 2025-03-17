@@ -3,14 +3,13 @@ import { View, Text, FlatList, TextInput, Button, ActivityIndicator, TouchableOp
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTodos, addTodo, updateTodo, deleteTodo } from '../../store/todosSlice';
 import { RootState } from '../../store';
-import { useColorScheme } from 'react-native';
+
 
 export default function TodoList() {
   const dispatch = useDispatch<any>();
   const { data: todos, status, error } = useSelector((state: RootState) => state.todos);
   const [title, setTitle] = useState('');
 
-  const colorScheme = useColorScheme();
 
   // Fetch todos when the component mounts
   useEffect(() => {
