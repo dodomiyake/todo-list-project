@@ -108,7 +108,7 @@ This compiles the .ts files into the dist/ folder.
 3. **Start the Mobile App**
    ```bash
    npx expo start
-* Press `a` to launch Android emulator.
+* Press `a` to launch Android emulator or `w` for web.
 
 ### Usage
 1. Launch the backend
