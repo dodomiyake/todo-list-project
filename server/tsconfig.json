@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
-        "target": "ES2020",
-        "module": "commonjs",
-        "outDir": "dist",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true
+        "target": "ES2020",        // Compile to ECMAScript 2020 features (compatible with Node.js 14+)
+        "module": "commonjs",      // Use CommonJS modules (standard for Node.js environments)
+        "outDir": "dist",          // Output compiled JavaScript to the dist directory
+        "strict": true,            // Enable all strict type checking options
+        "esModuleInterop": true,   // Allow default imports from CommonJS modules
+        "skipLibCheck": true       // Skip type checking of declaration files for better performance
     },
     "include": [
-        "src/**/*.ts"
+        "src/**/*.ts"              // Include all TypeScript files within the src directory
     ]
 }

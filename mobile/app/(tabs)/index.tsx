@@ -18,13 +18,13 @@ export default function TodoList() {
 
   useEffect(() => {
     console.log('📝 Current Todos:', todos);
-  }, [todos]); // ✅ Log whenever todos update
+  }, [todos]); // Log whenever todos update
 
   // Function to add a new todo
   const handleAddTodo = async () => {
     if (title.trim()) {
       await dispatch(addTodo(title));  // Wait for the todo to be added
-      dispatch(fetchTodos());          // 🔹 Immediately fetch updated list
+      dispatch(fetchTodos());          // Immediately fetch updated list
       setTitle('');
     }
   };
@@ -32,14 +32,14 @@ export default function TodoList() {
   // Function to toggle the completed status of a todo
   const handleToggleTodo = async (id: string, completed: boolean) => {
     await dispatch(updateTodo({ id, updates: { completed: !completed } }));
-    dispatch(fetchTodos()); // 🔹 Ensure UI updates immediately
+    dispatch(fetchTodos()); // Ensure UI updates immediately
   };
   
 
   // Function to delete a todo
   const handleDeleteTodo = async (id: string) => {
     await dispatch(deleteTodo(id));  // Wait for delete action
-    dispatch(fetchTodos());         // 🔹 Immediately refresh the list
+    dispatch(fetchTodos());         // Immediately refresh the list
   };
 
   if (status === 'loading') return <ActivityIndicator size="large" color="#0000ff" />;
@@ -69,7 +69,7 @@ export default function TodoList() {
       ) : (
         <FlatList
           data={todos}
-          keyExtractor={(item) => item.id} // 🔹 Fixed keyExtractor
+          keyExtractor={(item) => item.id} // Fixed keyExtractor
           renderItem={({ item }) => (
             <View
               style={{

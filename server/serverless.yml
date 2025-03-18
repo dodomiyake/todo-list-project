@@ -1,36 +1,42 @@
-# deploy serverless applications to AWS
-
+# Serverless Framework configuration for deploying a Todo API to AWS
+# The service name defines a unique namespace for your application
 service: todo-app-service
 
+# Specify which version of the Serverless Framework this config is compatible with
 frameworkVersion: "4"
 
+# Define the cloud provider and its configuration
 provider:
-  name: aws
-  runtime: nodejs18.x
-  region: us-east-1
+  name: aws                    # Target cloud provider (AWS)
+  runtime: nodejs18.x          # JavaScript runtime environment
+  region: us-east-1            # AWS region where resources will be deployed
 
+# Define Lambda functions and their event triggers
 functions:
   todoApi:
-    handler: dist/handlers/todos.handler
+    handler: dist/handlers/todos.handler    # Path to the compiled handler function
     events:
+      # HTTP endpoints that trigger the Lambda function
       - http:
-          path: todos
-          method: get
+          path: todos          # Endpoint for listing/creating todos
+          method: get          # GET request to retrieve all todos
       - http:
-          path: todos
-          method: post
+          path: todos          # Same endpoint for creating todos
+          method: post         # POST request to create a new todo
       - http:
-          path: todos/{id}
-          method: put
+          path: todos/{id}     # Endpoint with path parameter for specific todo
+          method: put          # PUT request to update a todo
       - http:
-          path: todos/{id}
-          method: delete
+          path: todos/{id}     # Same endpoint for deleting a todo
+          method: delete       # DELETE request to remove a todo
 
+# List of Serverless plugins to extend functionality
 plugins:
-  - serverless-offline
+  - serverless-offline         # Enables local testing of serverless functions
 
+# Custom configuration section for plugins
 custom:
   serverless-offline:
-    noPrependStageInUrl: true
-    httpPort: 3000
-    host: 0.0.0.0
+    noPrependStageInUrl: true  # Don't include stage name in URL paths
+    httpPort: 3000             # Port for local development server
+    host: 0.0.0.0              # Listen on all network interfaces
